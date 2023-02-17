@@ -12,7 +12,7 @@ pipeline {
 
     stage('Checkout Source') { 
       steps {
-        git credentialsId: 'github-credential-laguilar1', url: 'https://github.com/itzelmun/ejercicio-curso-lovedevops.git', branch:'main'
+        git credentialsId: credentialId, url: urlRepo, branch:'main'
       }
     }
     stage('Construir Imagen Aplicación') {
