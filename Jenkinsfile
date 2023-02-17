@@ -10,7 +10,7 @@ pipeline {
 
     stage('Checkout Source') { 
       steps {
-        git credentialsId: 'github-credential-laguilar1', url: $GITHUB_URL, branch:'main'
+        git credentialsId: 'github-credential-laguilar1', url: "$GITHUB_URL", branch:'main'
       }
     }
     stage('Construir Imagen Aplicación') {
