@@ -1,11 +1,13 @@
 pipeline {
-  agent any
+
   environment {
-    dockerImageName1 = "laguilar1/curso:devops1"
+    dockerImageName1 = "laguilar1/curso:devops"
     dockerImage1 = ""
-    GITHUB_URL = "https://github.com/laguilar1/devops.git"
+    urlRepo = "https://github.com/laguilar1/devops.git"
     credentialId = "github-credential-laguilar1"
   }
+
+  agent any
   stages {
 
     stage('Checkout Source') { 
