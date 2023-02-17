@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    dockerImageName1 = "laguilar1/curso:devops"
+    dockerImageName1 = "laguilar1/curso:devops1"
     dockerImage1 = ""
     GITHUB_URL = "https://github.com/laguilar1/devops.git"
     credentialId = "github-credential-laguilar1"
