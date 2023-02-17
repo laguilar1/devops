@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: proyecto-deployment-laguilar
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: proyecto-laguilar
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+        maxSurge: 0
+        maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: proyecto-laguilar
+        role: proyecto-laguilar
+    spec:
+      containers:
+        - name: proyecto-laguilar
+          image: laguilar1/curso:devops
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              name: proyecto-laguilar
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: proyecto-service-laguilar
+  labels:
+    app: proyecto-laguilar
+spec:
+  selector:
+    app: proyecto-laguilar
+  type: ClusterIP
+  ports:
+   - name: http
+     port: 80
+     protocol: TCP
+     targetPort: 80
+  selector:
+    role: proyecto-laguilar
+  
+
+
