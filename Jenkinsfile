@@ -3,8 +3,8 @@ pipeline {
   environment {
     dockerImageName1 = "laguilar1/curso:devops"
     dockerImage1 = ""
-    GITHUB_URL = "https://github.com/laguilar1/devops.git"
-    CREDENTIAL_ID = "github-credential-laguilar1"
+    GITHUB_URL = "https://github.com/laguilar1/devops.git" // "$GITHUB_URL"
+    CREDENTIAL_ID = "github-credential-laguilar1"         // "$CREDENTIAL_ID"
   }
 
   agent any
@@ -12,7 +12,7 @@ pipeline {
 
     stage('Checkout Source') { 
       steps {
-        git credentialsId: "$CREDENTIAL_ID", url: "$GITHUB_URL", branch:'main'
+        git credentialsId: "${env.CREDENTIAL_ID}", url: "${env.GITHUB_URL}", branch:'main'
       }
     }
     stage('Construir Imagen Aplicación') {
